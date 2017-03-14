@@ -285,7 +285,8 @@ public class PushSecureClient {
         }
 
         @Override
-        public void onResponse(retrofit.Response<T> response) {
+        public void onResponse(retrofit.Response<T> response, Retrofit retrofit) {
+
             if (200 <= response.code() && response.code() < 300) {
                 callback.onSuccess(response.body());
             } else {
